@@ -8,40 +8,42 @@ public class CheckingAccount extends Account {
 		System.out.println("Checking Account Class constructor");
 	}
 	
-	int withdraw() {
+	int withdraw(int limit) {
 		//to allow for overdraft up to a specified limit
 		//limit only accessible with it
-		System.out.println("Enter number of withraw limit ");
-		int limit = scan.nextInt();
-		
-		//System.out.println("Limit of Checking Account = " + limit);
-		
-		
-		try {
-			for(int i = 0; i < limit; i++) {
-			System.out.println("Enter withraw amount: ");
-			int amount = scan.nextInt();
+		boolean repeat = true;
+		while(repeat) {
 			try {
-				
-				if(amount > balance) {
-					System.out.println("withdraw was stopped (Balance less than Amount)");
-					
+				System.out.println("Enter withraw amount: ");
+				int amount = scan.nextInt();
+				if(amount >500) {
+					System.out.println("withraw amount should be less than "+limit+" ROM ");
 				}
 				else {
-					balance = balance - amount;
-					System.out.println("withraw " + amount +" ROM succefully");
-					System.out.println("Balance now: " + balance + " ROM");
+					try {
+						
+						if(amount > balance) {
+							System.out.println("withdraw was stopped (Balance less than Amount)");
+							
+						}
+						else {
+							balance = balance - amount;
+							System.out.println("withraw " + amount +" ROM succefully");
+							System.out.println("Balance now: " + balance + " ROM");
+							repeat = false;
+						}
+						
+					}
+					catch(Exception e) {
+						System.out.println("Some Error Happened ");
+					}
 				}
-				
 			}
 			catch(Exception e) {
-				System.out.println("Some Error Happened ");
-			}
+				System.out.println("Enter a valid input ");
 			}
 		}
-		catch(Exception e) {
-			System.out.println("Enter a valid input ");
-		}
+		
 		return limit;
 		
 	}

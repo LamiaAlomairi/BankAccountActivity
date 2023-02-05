@@ -30,7 +30,7 @@ public class Main {
 		System.out.println("Acount Holder Name: " + checkAccount.getAccountHolderName());
 		System.out.println("Balance:            " + checkAccount.getBalance());
 		checkAccount.deposit(15);
-		checkAccount.withdraw();
+		checkAccount.withdraw(500);
 		System.out.println("_________________________________ ");
 		
 		//    ****** Save Data to file  *****
