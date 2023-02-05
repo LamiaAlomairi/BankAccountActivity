@@ -16,7 +16,7 @@ public class CheckingAccount extends Account {
 			try {
 				System.out.println("Enter withraw amount: ");
 				int amount = scan.nextInt();
-				if(amount >500) {
+				if(amount >limit) {
 					System.out.println("withraw amount should be less than "+limit+" ROM ");
 				}
 				else {
